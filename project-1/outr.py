@@ -32,10 +32,17 @@ def main():
         else:
             print(destinations[0][2].value())
     elif user_sport = "Biking":
-        print(f"The top three Biking cities are {destinations[1][0]}, {destinations[1][1]}, and {destinations[1]2[2]}!")
+        print(f"The top three Biking cities are {destinations[1][0]}, {destinations[1][1]}, and {destinations[1][2]}!")
         biking_city = input("Which city you you want to learn more about (Salt Lake City, Phoenix, or Bentonville)?").capitalize()
         if biking_city = "Salt Lake City":
-            print(
+            print(destinations[1][0].value())
+        elif biking_city = "Phoenix":
+            print(destinations[1][1].value())
+        else:
+            print(destinations[1][2].value())
+    elif user_sport = "Climbing":
+        print(f"The top three Climbing cities are {desinations[2][0]}, {destinations[2][1]}, and {destinations[2][2]!")
+        climbing_city = input("Which city would you want to learn more about (El Paso, Las Vegas, Yucca Valley)?")
 
 
 if __name__ == "__main__":
