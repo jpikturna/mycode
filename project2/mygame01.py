@@ -31,52 +31,25 @@ inventory = []
 
 ## A dictionary linking a room to other rooms
 rooms = {
+
             'Hall' : {
-                  'north' : 'Deep Hallway',
-                  'east'  : 'Lethargy Living Room',
-                  'west'  : 'Desolate Dining Room',
-                  'item'  : 'Victorian Candlestick'
-                     },
-            'Lethargy Living Room' : {
+                  'south' : 'Kitchen',
+                  'east'  : 'Dining Room',
+                  'item'  : 'key'
+                },
+
+            'Kitchen' : {
+                  'north' : 'Hall',
+                  'item'  : 'monster',
+                },
+            'Dining Room' : {
                   'west' : 'Hall',
-                  'item' : 'Thesaurus'
-                     },
-            'Desolate Dining Room' : {
-                  'east' : 'Hall',
-                  'north' : 'Killing Kitchen'
-                    },
-            'Killing Kitchen' : {
-                  'east' : 'Deep Hallway',
-                  'south'  : 'Desolate Dining Room',
-                  'item' : 'Wooden Thpoon'
-                    },
-            'Deep Hallway' : {
-                  'south' : 'Hall',
-                  'north' : 'Despair Upstairs',
-                  'west' : 'Killing Kitchen',
-                  'east' : 'Bathroom of Infinite Self-Loathing',
-                    },
-            'Bathroom of Infinite Self-Loathing' : {
-                  'west' : 'Deep Hallway',
-                  'item' : 'Plunger of Destiny'
-                    },
-            'Despair Upstairs' : {
-                  'north' : 'Deep Hallway',
-                  'south' : 'Creepy Closet',
-                  'west'  : 'Ghoulish Guestroom',
-                  'east'  : 'Master Deadroom'
-                    },
-            'Goulish Guestroom' : {
-                  'east' : 'Despair Upstairs',
-                    },
-            'Creepy Closet' : {
-                  'north' : 'Deep Hallway',
-                  'item' : 'House Key',
-                    },
-            'Master Deadroom' : {
-                  'west' : 'Despair Upstairs',
-                  'item' : 'Home Owner'
-                    },
+                  'south': 'Garden',
+                  'item' : 'potion'
+               },
+            'Garden' : {
+                  'north' : 'Dining Room'
+            }
          }
 
 
@@ -135,3 +108,4 @@ while True:
     if currentRoom == 'Garden' and 'key' in inventory and 'potion' in inventory:
         print('You escaped the house with the ultra rare key and magic potion... YOU WIN!')
         break
+
