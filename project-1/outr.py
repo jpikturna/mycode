@@ -3,7 +3,7 @@
 """Outr: A Service to Find Your Outdoor Destination"""
 
 def main():
-    #create a big, fat dictionary named destinations and fill with outdoor sports subdictionaries
+nn    #create a big, fat dictionary named destinations and fill with outdoor sports subdictionaries
     #fill the subdictionaries with city keys with a list of "whys" as values
     destinations= {
     "Hiking":
