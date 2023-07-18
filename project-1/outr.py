@@ -22,26 +22,26 @@ def main():
     print("Welcome to Outr! Let us help you find an outdoorsy city you might* like")
     user_sport= input("Do you like: Hiking, Biking, or Climbing?")
     
-    if user_sport = "Hiking":
-        print(f"The top three Hiking cities are {destinations[0][0]}, {destinations[0][1]}, and {destinations[0][2]}!")
+    if user_sport == "Hiking":
+        print(f"The top three Hiking cities are {destinations["Hiking"][0]}, {destinations["Hiking"][1]}, and {destinations["Hiking"][2]}!")
         hiking_city = input("Which city do you want to learn more about (Denver, Seattle, San Diego)?").capitalize()
-        if hiking_city = "Denver":
+        if hiking_city == "Denver":
             print(destinations[0][0].value())
-        elif hiking_city = "Seattle":
+        elif hiking_city == "Seattle":
             print(destinations[0][1].value())
         else:
             print(destinations[0][2].value())
-    elif user_sport = "Biking":
+    elif user_sport == "Biking":
         print(f"The top three Biking cities are {destinations[1][0]}, {destinations[1][1]}, and {destinations[1][2]}!")
         biking_city = input("Which city you you want to learn more about (Salt Lake City, Phoenix, or Bentonville)?").capitalize()
-        if biking_city = "Salt Lake City":
+        if biking_city == "Salt Lake City":
             print(destinations[1][0].value())
-        elif biking_city = "Phoenix":
+        elif biking_city == "Phoenix":
             print(destinations[1][1].value())
         else:
             print(destinations[1][2].value())
-    elif user_sport = "Climbing":
-        print(f"The top three Climbing cities are {desinations[2][0]}, {destinations[2][1]}, and {destinations[2][2]!")
+    elif user_sport == "Climbing":
+        print(f"The top three Climbing cities are {desinations[2][0]}, {destinations[2][1]}, and {destinations[2][2]}!")
         climbing_city = input("Which city would you want to learn more about (El Paso, Las Vegas, Yucca Valley)?")
 
 
