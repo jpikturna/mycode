@@ -1,29 +1,34 @@
 #!/usr/bin/python3
+
+#python3 -m pip install crayons
+import crayons
+
 """Driving a simple game framework with
    a dictionary object | Alta3 Research"""
 
 def showInstructions():
     """Show the game instructions when called"""
     #print a main menu and the commands
-    print('''
-    RPG Game
-    ========
-    Commands:
-      go [direction]
-      get [item]
-    ''')
+    print(crayons.red('''
+ESCAPE FROM YOUR WEIRD NEIGHBOR
+================================
+Commands:
+go [direction]
+get [item]
+    '''))
 
 def showStatus():
     """determine the current status of the player"""
     # print the player's current location
-    print('---------------------------')
-    print('You are in the ' + currentRoom)
-    # print what the player is carrying
-    print('Inventory:', inventory)
+    print(crayons.green(f'''
+===============================
+You're anxiously waiting in the {currentRoom}
+Inventory:  {inventory}
+    '''))
     # check if there's an item in the room, if so print it
     if "item" in rooms[currentRoom]:
-      print('You see a ' + rooms[currentRoom]['item'])
-    print("---------------------------")
+        print(crayons.green('You see a ' + rooms[currentRoom]['item']))
+    print(crayons.green("================================"))
 
 
 # an inventory, which is initially empty
@@ -31,27 +36,53 @@ inventory = []
 
 ## A dictionary linking a room to other rooms
 rooms = {
-
-            'Hall' : {
-                  'south' : 'Kitchen',
-                  'east'  : 'Dining Room',
+             'Hall' : {
+                  'north' : 'Deep Hallway',
+                  'east'  : 'Lethargy Living Room',
+                  'west'  : 'Desolate Dining Room',
                   'item'  : 'key'
-                },
-
-            'Kitchen' : {
-                  'north' : 'Hall',
-                  'item'  : 'monster',
-                },
-            'Dining Room' : {
+                     },
+            'Lethargy Living Room' : {
                   'west' : 'Hall',
-                  'south': 'Garden',
-                  'item' : 'potion'
-               },
-            'Garden' : {
-                  'north' : 'Dining Room'
-            }
+                     },
+            'Desolate Dining Room' : {
+                  'east' : 'Hall',
+                  'north' : 'Killing Kitchen'
+                    },
+            'Killing Kitchen' : {
+                  'east' : 'Deep Hallway',
+                  'south'  : 'Desolate Dining Room',
+                  'item' : 'Wooden Thpoon'
+                    },
+            'Deep Hallway' : {
+                  'south' : 'Hall',
+                  'north' : 'Despair Upstairs',
+                  'west' : 'Killing Kitchen',
+                  'east' : 'Bathroom of Infinite Self-Loathing',
+                  'item' :'monster',
+                    },
+            'Bathroom of Infinite Self-Loathing' : {
+                  'west' : 'Deep Hallway',
+                  'item' : 'Plunger of Destiny'
+                    },
+            'Despair Upstairs' : {
+                  'north' : 'Deep Hallway',
+                  'south' : 'Creepy Closet',
+                  'west'  : 'Ghoulish Guestroom',
+                  'east'  : 'Master Deadroom'
+                    },
+            'Goulish Guestroom' : {
+                  'east' : 'Despair Upstairs',
+                    },
+            'Creepy Closet' : {
+                  'north' : 'Deep Hallway',
+                  'item' : 'House Key',
+                    },
+            'Master Deadroom' : {
+                  'west' : 'Despair Upstairs',
+                  'item' : 'Home Owner'
+                    },
          }
-
 
 # start the player in the Hall
 currentRoom = 'Hall'
@@ -81,7 +112,7 @@ while True:
             currentRoom = rooms[currentRoom][move[1]]
         # if they aren't allowed to go that way:
         else:
-            print('You can\'t go that way!')
+            print('You cannot go that way!')
 
     #if they type 'get' first
     if move[0] == 'get' :
@@ -99,10 +130,26 @@ while True:
         else:
             #tell them they can't get it
             print('Can\'t get ' + move[1] + '!')
+    if move[0] == 'q' :
+        #if the player wants to (q)
+        print(crayons.blue('''
+================================
+Calling it?  I don't blame you.
+It's creepy in here...
+...anyway, bye!
+================================
+            '''))
 
     ## If a player enters a room with a monster
     if 'item' in rooms[currentRoom] and 'monster' in rooms[currentRoom]['item']:
-        print('A monster has got you... GAME OVER!')
+        print(crayons.red('''
+⠀⢀⣠⣤⣤⣄⡀⠀
+⣴⣿⣿⣿⣿⣿⣿⣦
+⣿⣿⣿⣿⣿⣿⣿⣿
+⣇⠈⠉⡿⢿⠉⠁⢸
+⠙⠛⢻⣷⣾⡟⠛⠋
+YOU DIED
+            '''))
         break
     ## Define how a player can win
     if currentRoom == 'Garden' and 'key' in inventory and 'potion' in inventory:
