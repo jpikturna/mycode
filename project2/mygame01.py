@@ -11,24 +11,42 @@ def showInstructions():
     #print a main menu and the commands
     print(crayons.red('''
 ESCAPE FROM YOUR WEIRD NEIGHBOR
-================================
+⠀⠀⠀⣠⣴⣶⣶⣾⡿⠿⠿⠿⠷⠦⠤⠀⠀⠀⠀⠠⠶⠿⠿⠿⠿⢿⣷⣶⣶⣦⡄⠀⠀⠀
+⠀⣠⣾⡿⠛⣁⣤⡄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢠⣤⡈⠹⣿⣧⡄⠀
+⣰⣿⡿⢆⣾⡟⠃⣠⣶⣶⣦⣄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣠⣴⣶⣦⡄⠘⢻⣇⡸⢿⣷⡆
+⣷⣿⡇⣾⣿⡁⣾⣿⡛⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⢻⣿⡇⢸⣿⡇⢸⣿⣿
+⠘⣿⣿⣿⣷⣾⣿⡏⠁⠠⣶⣆⡀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣴⡦⠄⠈⢹⣿⣷⣾⣿⣿⡟⠃
+⣾⣵⣿⣿⣿⣿⣿⣷⣶⣶⣷⣿⡇⠀⠀⠀⠀⠀⠀⠀⠀⢸⣿⣷⣶⣶⣾⣿⣿⣿⣿⣿⣿⣧
+⠈⠛⢿⣷⡎⠉⠛⠻⠿⢿⣿⣿⡇⠀⠀⠀⠀⠀⠀⠀⠀⢾⣿⣿⡿⠿⠟⠛⠉⢱⣾⡟⠛⠁
+⠀⠀⠀⢹⡿⠁⠀⠀⠀⠈⢻⣿⣿⡇⠀⠀⠀⠀⠀⠀⣸⣿⣿⡯⠁⠀  ⠀⠀⠸⢿⡇⠀⠀⠀
+⠀⠀⠀⠈⠀⠀⠀⠀⠀⠀⠘⣿⣿⣧⡄⢀⣀⣀⡀⣠⣽⣿⡟⠃⠀⠀⠀⠀⠀⠈⠁⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢻⡿⠏⠘⠋⢠⡄⠘⠋⠹⢿⡟⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡆⠀⠀⠀⢸⢁⡀⠀⠐⠃⡆⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢰⣷⡆⠀⠀⢸⡀⠀⠐⢴⣷⡆⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⢏⣿⡇⠀⠀⠀⠀⢸⣿⡏⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡆⠐⠒⠀⠐⠐⠂⣆⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠘⡅⠀⠀⠀⠀⣜⠃⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠸⡝⠂⠘⠻⠇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢃⡠⣄⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+==================================
 Commands:
 go [direction]
 get [item]
+
     '''))
 
 def showStatus():
     """determine the current status of the player"""
     # print the player's current location
     print(crayons.green(f'''
-===============================
+=================================
 You're anxiously waiting in the {currentRoom}
 Inventory:  {inventory}
     '''))
     # check if there's an item in the room, if so print it
     if "item" in rooms[currentRoom]:
         print(crayons.green('You see a ' + rooms[currentRoom]['item']))
-    print(crayons.green("================================"))
+    print(crayons.green("=================================="))
 
 
 # an inventory, which is initially empty
@@ -40,7 +58,6 @@ rooms = {
                   'north' : 'Deep Hallway',
                   'east'  : 'Lethargy Living Room',
                   'west'  : 'Desolate Dining Room',
-                  'item'  : 'key'
                      },
             'Lethargy Living Room' : {
                   'west' : 'Hall',
@@ -52,14 +69,14 @@ rooms = {
             'Killing Kitchen' : {
                   'east' : 'Deep Hallway',
                   'south'  : 'Desolate Dining Room',
+                  'west' : 'Graveyard Garden'
                   'item' : 'Wooden Thpoon'
                     },
             'Deep Hallway' : {
                   'south' : 'Hall',
                   'north' : 'Despair Upstairs',
                   'west' : 'Killing Kitchen',
-                  'east' : 'Bathroom of Infinite Self-Loathing',
-                  'item' :'monster',
+                  'east' : 'Bathroom of Infinite Self-Loathing'
                     },
             'Bathroom of Infinite Self-Loathing' : {
                   'west' : 'Deep Hallway',
@@ -76,12 +93,15 @@ rooms = {
                     },
             'Creepy Closet' : {
                   'north' : 'Deep Hallway',
-                  'item' : 'House Key',
+                  'item' : 'key',
                     },
             'Master Deadroom' : {
                   'west' : 'Despair Upstairs',
-                  'item' : 'Home Owner'
+                  'item' : 'Normal Gun'
                     },
+            'Graveyard Garden' : {
+                  'east' : 'Killing Kitchen',
+                  'item' : 'Wendigo'
          }
 
 # start the player in the Hall
@@ -133,26 +153,67 @@ while True:
     if move[0] == 'q' :
         #if the player wants to (q)
         print(crayons.blue('''
-================================
+==================================
 Calling it?  I don't blame you.
 It's creepy in here...
 ...anyway, bye!
-================================
+==================================
             '''))
 
     ## If a player enters a room with a monster
-    if 'item' in rooms[currentRoom] and 'monster' in rooms[currentRoom]['item']:
+    if 'item' in rooms[currentRoom] and 'Wendigo' in rooms[currentRoom]['item']:
         print(crayons.red('''
+==================================
 ⠀⢀⣠⣤⣤⣄⡀⠀
 ⣴⣿⣿⣿⣿⣿⣿⣦
 ⣿⣿⣿⣿⣿⣿⣿⣿
 ⣇⠈⠉⡿⢿⠉⠁⢸
 ⠙⠛⢻⣷⣾⡟⠛⠋
 YOU DIED
+==================================
             '''))
         break
     ## Define how a player can win
-    if currentRoom == 'Garden' and 'key' in inventory and 'potion' in inventory:
-        print('You escaped the house with the ultra rare key and magic potion... YOU WIN!')
+    While currentRoom == 'Graveyard Garden':
+        if 'key' in inventory and 'Normal Gun' in inventory:
+            print(crayons.red(f'''
+========================================================================
+You see your neighbor standing in the garden...\n
+Why is he twitching?  Why is he covered in... blood? \n
+He comes sprinting at you full tilt, so you draw your weapon and fire...
+=========================================================================
+⠀⢀⣠⣤⣤⣄⡀⠀
+⣴⣿⣿⣿⣿⣿⣿⣦
+⣿⣿⣿⣿⣿⣿⣿⣿
+⣇⠈⠉⡿⢿⠉⠁⢸
+⠙⠛⢻⣷⣾⡟⠛⠋
+YOU DIED
+=========================================================================
+        '''))
         break
-
+        if 'key' in inventory and 'Plunger of Destiny' in inventory:
+            print(crayons.red(f'''
+You see your neighbor standing in the garden...\n
+Well... he got taller... and grew horns...
+He comes sprinting at you on all fours, so you panic and ready the Plunger of Destiny...
+You stuck the plunger to his weird skull-face!
+You rush to the gate, use the key you found and run out into the street!!
+CONGRATULATIONS, YOU ESCAPED THE WENDIGO NEXT DOOR!
+★ ° . *　　　°　.　°☆ 　. * ● ¸ 
+. 　　　★ 　° :. ★　 * • ○ ° ★　 
+.　 * 　.　 　　　　　. 　 
+° 　. ● . ★ ° . *　　　°　.　°☆ 
+　. * ● ¸ . 　　　★ 　° :●. 　 * 
+• ○ ° ★　 .　 * 　.　 　　　　　.
+ 　 ° 　. ● . ★ ° . *　　　°　.　
+°☆ 　. * ● ¸ . 　　　★ 　
+° :. 　 * • ○ ° ★　 .　 * 　.　 
+　★　　　　. 　 ° 　.  . 　    ★　 　　
+° °☆ 　¸. ● . 　　★　★ 
+° . *　　　°　.　°☆ 　. * ● ¸ . 
+★ ° . *　　　°　.　°☆ 　. * ● ¸ 
+. 　　　★ 　° :. 　 * • ○ ° ★　 
+.　 * 　.　 　★     ° :.☆
+You run off into the night...
+            '''))
+            break
