@@ -182,9 +182,8 @@ It's creepy in here...
         '''))
         break
     # Define how a player can win
-    while currentRoom == 'Graveyard Garden':
-        if 'key' not in inventory:
-            print(crayons.red(f'''
+    if currentRoom == 'Graveyard Garden' and 'key' not in inventory:
+        print(crayons.red(f'''
 ======================================================================
 You see your neighbor standing in the garden... \n
 Why is he twitching?  Wh is he covered in... blood? \n
@@ -200,9 +199,9 @@ You fail.
 YOU DIED
 ======================================================================
                     '''))
-            break
-        elif 'key' in inventory and 'Normal Gun' in inventory:
-            print(crayons.red(f'''
+        break
+    elif currentRoom == 'Graveyard Garden' and 'key' in inventory and 'Normal Gun' in inventory:
+        print(crayons.red(f'''
 ========================================================================
 You see your neighbor standing in the garden...\n
 Why is he twitching?  Why is he covered in... blood? \n
@@ -216,9 +215,9 @@ He comes sprinting at you full tilt, so you draw your weapon and fire...
 YOU DIED
 =========================================================================
             '''))
-            break
-        elif 'key' in inventory and 'plunger of destiny' in inventory:
-            print(crayons.red(f'''
+        break
+    elif currentRoom == 'Graveyard Garden' and 'key' in inventory and 'plunger of destiny' in inventory:
+        print(crayons.red(f'''
 You see your neighbor standing in the garden...\n
 Well... he got taller... and grew horns...
 He comes sprinting at you on all fours, so you panic and ready the Plunger of Destiny...
@@ -242,4 +241,4 @@ CONGRATULATIONS, YOU ESCAPED THE WENDIGO NEXT DOOR!
 .　 * 　.　 　★     ° :.☆
 You run off into the night...
             '''))
-            break
+        break
