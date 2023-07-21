@@ -102,7 +102,7 @@ rooms = {
                   'east'  : 'Master Deadroom',
                   'desc'  : 'You are at the top of the spiral staircase.\n  You are now facing South.\n  The smell is so bad you barely notice a bedroom to the West, a master bedroom to the East, and a weird closet at the end of the hall.'
                     },
-            'Goulish Guestroom' : {
+            'Ghoulish Guestroom' : {
                   'east' : 'Despair Upstairs',
                   'desc' : 'The room is completely empty.\n  The closet has no door and the floor is covered with plastic.\n  You feel a sense of impending death for some reason.'
                     },
@@ -113,7 +113,7 @@ rooms = {
                     },
             'Master Deadroom' : {
                   'west' : 'Despair Upstairs',
-                  'item' : 'Normal Gun',
+                  'item' : 'normal gun',
                   'desc' : 'The smell is unbearable.\n  You can hardly see through your watering eyes and dry heaves.\n  The bed is just a swirled mass of remains like a disgusting nest.\n  You see a discarded police uniform next to the wall.\n  The utility belt still has a 9mm pistol holstered.'
                     },
             'Graveyard Garden' : {
@@ -152,8 +152,8 @@ while True:
             #set the current room to the new room
             currentRoom = rooms[currentRoom][move[1]]
         # if they aren't allowed to go that way:
-    else:
-        print('You cannot go that way!')
+        else:
+            print('You cannot go that way!')
 
     #if they type 'get' first
     if move[0] == 'get' :
@@ -174,50 +174,51 @@ while True:
     if move[0] == 'q' :
         #if the player wants to (q)
         print(crayons.blue('''
-==================================
+================================================================================
 Calling it?  I don't blame you.
 It's creepy in here...
 ...anyway, bye!
-==================================
+================================================================================
         '''))
         break
     # Define how a player can win
     if currentRoom == 'Graveyard Garden' and 'key' not in inventory:
         print(crayons.red(f'''
-======================================================================
+================================================================================
 You see your neighbor standing in the garden... \n
 Why is he twitching?  Wh is he covered in... blood? \n
 He comes priting at you on all fours.
 You try to run.
 You fail.
-=======================================================================
+================================================================================
 ⠀⢀⣠⣤⣤⣄⡀⠀
 ⣴⣿⣿⣿⣿⣿⣿⣦
 ⣿⣿⣿⣿⣿⣿⣿⣿
 ⣇⠈⠉⡿⢿⠉⠁⢸
 ⠙⠛⢻⣷⣾⡟⠛⠋
 YOU DIED
-======================================================================
+================================================================================
                     '''))
         break
-    elif currentRoom == 'Graveyard Garden' and 'key' in inventory and 'Normal Gun' in inventory:
+    elif currentRoom == 'Graveyard Garden' and 'key' in inventory and 'normal gun' in inventory:
         print(crayons.red(f'''
-========================================================================
+================================================================================
 You see your neighbor standing in the garden...\n
 Why is he twitching?  Why is he covered in... blood? \n
 He comes sprinting at you full tilt, so you draw your weapon and fire...
-=========================================================================
+================================================================================
 ⠀⢀⣠⣤⣤⣄⡀⠀
 ⣴⣿⣿⣿⣿⣿⣿⣦
 ⣿⣿⣿⣿⣿⣿⣿⣿
 ⣇⠈⠉⡿⢿⠉⠁⢸
 ⠙⠛⢻⣷⣾⡟⠛⠋
 YOU DIED
-=========================================================================
+=================================================================================
             '''))
         break
     elif currentRoom == 'Graveyard Garden' and 'key' in inventory and 'plunger of destiny' in inventory:
         print(crayons.red(f'''
+=================================================================================
 You see your neighbor standing in the garden...\n
 Well... he got taller... and grew horns...
 He comes sprinting at you on all fours, so you panic and ready the Plunger of Destiny...
@@ -240,5 +241,6 @@ CONGRATULATIONS, YOU ESCAPED THE WENDIGO NEXT DOOR!
 . 　　　★ 　° :. 　 * • ○ ° ★　 
 .　 * 　.　 　★     ° :.☆
 You run off into the night...
+================================================================================
             '''))
         break
