@@ -21,7 +21,10 @@ def main():
     # Initialize a counter and begin the game!
     counter = 0
     chosensport = input("Choose a sport to play! (Hiking, Biking, Climbing)").title()
-
+    
+    # The player gets two chances to guess which is the most popular
+    # If they get it, a congrats + fun facts will print
+    # If they don't get it, just the answer will be printed
     if chosensport == sports[0]:
         while counter < 3:
             chosencity = input("Which of the following three cities is MOST popular for hiking? (Seattle, Denver, San Diego) or ((Q)uit)").title()
