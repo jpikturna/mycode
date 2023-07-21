@@ -3,8 +3,7 @@
 #python3 -m pip install crayons
 import crayons
 
-"""Driving a simple game framework with
-   a dictionary object | Alta3 Research"""
+"""EFYLWN!  A text-based RPG that utilizes a dictionary to store and access values"""
 
 def showInstructions():
     """Show the game instructions when called"""
@@ -40,6 +39,7 @@ Commands:
 go [direction]
 get [item]
 look 
+(q) to quit
 
     '''))
 
