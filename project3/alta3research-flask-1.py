@@ -20,7 +20,7 @@ data = {
     ]
 }
 
-# Home endpoint, returns HTML with Jinja2 logic
+# Home endpoint, returns HTML
 @app.route('/')
 def home():
     return render_template('index.html')
@@ -39,8 +39,9 @@ def protected_endpoint():
     else:
         return "Access Denied. Please log in."
 
-# SQLite3 database example
+# SQLite3 database
 def create_table():
+    """creates a table based on the user id and nam values"""
     conn = sqlite3.connect('users.db')
     c = conn.cursor()
     c.execute('CREATE TABLE IF NOT EXISTS users (id INTEGER PRIMARY KEY, name TEXT)')
@@ -48,6 +49,7 @@ def create_table():
     conn.close()
 
 def insert_user(name):
+    """Populates the above table with id and name values from the 'data' dictionary above"""
     conn = sqlite3.connect('users.db')
     c = conn.cursor()
     c.execute('INSERT INTO users (name) VALUES (?)', (name,))

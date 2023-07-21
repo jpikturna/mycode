@@ -13,7 +13,7 @@ def normalize_json(json_data):
     return normalized_data
 
 if __name__ == '__main__':
-    url = "http://127.0.0.1:5000/json"  # Replace with your Flask API endpoint
+    url = "http://127.0.0.1:5000/json"  #Flask endpoint
     response = requests.get(url)
 
     if response.status_code == 200:
