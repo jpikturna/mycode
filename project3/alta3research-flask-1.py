@@ -9,9 +9,9 @@ from flask import session
 import sqlite3
 
 app = Flask(__name__)
-app.secret_key = "your_secret_key"
 
-# Create two mock id's for demonstration purposes
+
+# Create two mock users witrh integer id's and String names
 data = {
     "message": "Hello, this is a Flask API!",
     "users": [
@@ -37,11 +37,11 @@ def protected_endpoint():
         user_id = session['user_id']
         return f"Welcome, User ID: {user_id}"
     else:
-        return "Access Denied. Please log in."
+        return "Nice try, dude. Please.... just log in."
 
 # SQLite3 database
 def create_table():
-    """creates a table based on the user id and nam values"""
+    """creates a table based on the data dictionary"""
     conn = sqlite3.connect('users.db')
     c = conn.cursor()
     c.execute('CREATE TABLE IF NOT EXISTS users (id INTEGER PRIMARY KEY, name TEXT)')
@@ -59,9 +59,9 @@ def insert_user(name):
 @app.route('/add_user/<name>')
 def add_user(name):
     insert_user(name)
-    return f"User {name} added to the database."
+    return f"User {name} brought into the fold."
 
 if __name__ == '__main__':
     create_table()
-    app.run(debug=True)
+    app.run(host="0.0.0.0", port=2224)
 
