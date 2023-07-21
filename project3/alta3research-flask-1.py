@@ -11,9 +11,9 @@ import sqlite3
 app = Flask(__name__)
 
 
-# Create two mock users witrh integer id's and String names
+# Create two mock users with Integer id's and String names
 data = {
-    "message": "Hello, this is a Flask API!",
+    "message": "Welcome to the Flask API. Isn't that just neat?!",
     "users": [
         {"id": 1, "name": "Eric"},
         {"id": 2, "name": "Michael"}
@@ -33,6 +33,7 @@ def json_endpoint():
 # Require a session value to move forward
 @app.route('/protected')
 def protected_endpoint():
+    """self-explanatory function (protect an endpoint using sessions)"""
     if 'user_id' in session:
         user_id = session['user_id']
         return f"Welcome, User ID: {user_id}"
